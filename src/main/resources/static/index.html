@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Resume & Job Tracker</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="brand">
+        <span class="brand-mark">RJ</span>
+        <div>
+          <h1>Resume & Job Tracker</h1>
+          <p>Upload resumes, track users, and parse content in seconds.</p>
+        </div>
+      </div>
+      <nav>
+        <a href="#register">Register</a>
+        <a href="#login">Login</a>
+        <a href="#upload">Upload Resume</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="grid" aria-label="Quick overview">
+        <article>
+          <h2>Secure accounts</h2>
+          <p>Register and log in with hashed passwords using Spring Security.</p>
+        </article>
+        <article>
+          <h2>Resume uploads</h2>
+          <p>Store resume metadata and parse PDF/DOCX content for insights.</p>
+        </article>
+        <article>
+          <h2>API-first workflow</h2>
+          <p>Frontend uses your existing REST endpoints with simple fetch calls.</p>
+        </article>
+      </section>
+
+      <section id="register" class="panel">
+        <h2>Create an account</h2>
+        <form id="registerForm">
+          <div class="field-row">
+            <label>
+              First name
+              <input type="text" name="firstName" required />
+            </label>
+            <label>
+              Last name
+              <input type="text" name="lastName" required />
+            </label>
+          </div>
+          <label>
+            Email
+            <input type="email" name="email" required />
+          </label>
+          <label>
+            Password
+            <input type="password" name="password" minlength="6" required />
+          </label>
+          <button type="submit">Register</button>
+          <p class="helper">POST /register</p>
+          <div class="status" data-status="register"></div>
+        </form>
+      </section>
+
+      <section id="login" class="panel">
+        <h2>Login</h2>
+        <form id="loginForm">
+          <label>
+            Email
+            <input type="email" name="email" required />
+          </label>
+          <label>
+            Password
+            <input type="password" name="password" required />
+          </label>
+          <button type="submit">Login</button>
+          <p class="helper">POST /login</p>
+          <div class="status" data-status="login"></div>
+        </form>
+      </section>
+
+      <section id="upload" class="panel">
+        <h2>Upload a resume</h2>
+        <form id="uploadForm">
+          <label>
+            User ID
+            <input type="number" name="userId" min="1" required />
+          </label>
+          <label>
+            Resume file (PDF/DOCX)
+            <input type="file" name="file" accept=".pdf,.docx" required />
+          </label>
+          <button type="submit">Upload</button>
+          <p class="helper">POST /resume</p>
+          <div class="status" data-status="upload"></div>
+        </form>
+      </section>
+    </main>
+
+    <footer>
+      <p>Backend: Spring Boot · Storage: PostgreSQL · Parsing: PDFBox & Apache POI</p>
+    </footer>
+
+    <script src="app.js"></script>
+  </body>
+</html>
